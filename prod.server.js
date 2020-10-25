@@ -42,7 +42,7 @@ apiRoutes.get('/ratings', function (req, res) {
 	});
 }); 
 
-app.use('/api', apiRoutes);
+app.use('/sell/api', apiRoutes);
 
 app.use(express.static('./dist'));
 

@@ -1,4 +1,12 @@
 import axios from 'axios'
+
+const env = process.env.NODE_ENV
+if (env === 'development') {
+  axios.defaults.baseURL = '/'
+} else if (env === 'production') {
+  axios.defaults.baseURL = '/sell'
+}
+
 const ERR_OK = 0
 
 export function get(url) {
