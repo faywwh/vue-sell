@@ -5,15 +5,6 @@ var port = process.env.PORT || config.build.port;
 
 var app = express();
 
-var router = express.Router();
-
-router.get('/', function (req, res, next) {
-	req.url = '/index.html';
-	next();
-});
-
-app.use(router);
-
 var appData = require('./data.json');
 var seller = appData.seller;
 var goods = appData.goods;
@@ -44,7 +35,7 @@ apiRoutes.get('/ratings', function (req, res) {
 
 app.use('/sell/api', apiRoutes);
 
-app.use(express.static('./dist'));
+app.use('/sell', express.static('./dist'));
 
 module.exports = app.listen(port, function (err) {
 	if (err) {
